@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Control</title>
+</head>
+<body>
+    <h1>Fan Control Interface</h1>
+
+    <label>
+        <input type="radio" name="mode" value="manual" checked> Manual Mode
+    </label>
+    <label>
+        <input type="radio" name="mode" value="auto"> Automatic Mode
+    </label>
+    
+    <div id="manual-controls">
+        <label for="fan-speed">Set Fan Speed (0-6):</label>
+        <input type="number" id="fan-speed" min="0" max="6" step="1">
+    </div>
+
+    <button onclick="sendFanControl()">Set Fan Speed</button>
+
+    <p id="status-message"></p>
+    <p id="error-message" style="color: red;"></p>
+
+    <script>
+        async function sendFanControl() {
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const fanSpeed = document.getElementById('fan-speed').value;
+
+            const data = mode === 'auto' 
+                ? { mode: mode }  // Only sends mode for auto; ESP8266 handles actual sensor reading
+                : { mode: mode, fanSpeed: parseInt(fanSpeed) };
+
+            console.log("Sending payload:", data);
+
+            try {
+                const response = await fetch('/set_fan_speed', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    document.getElementById('status-message').textContent = `Fan speed set to ${result.fanSpeed}`;
+                    document.getElementById('error-message').textContent = '';
+                } else {
+                    throw new Error('Failed to set fan speed');
+                }
+            } catch (error) {
+                document.getElementById('status-message').textContent = '';
+                document.getElementById('error-message').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
