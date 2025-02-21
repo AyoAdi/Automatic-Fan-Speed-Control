@@ -1,0 +1,282 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Control Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #333;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+        .value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .fan-speed {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ff5722;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Control Dashboard</h1>
+        <div class="status">
+            <div>Temperature: <span id="temperature" class="value">--</span> °C</div>
+            <div>Humidity: <span id="humidity" class="value">--</span> %</div>
+        </div>
+        <div class="fan-speed">
+            Fan Speed: <span id="fan-speed" class="value">--</span>
+        </div>
+        <div id="error-message" class="error"></div> <!-- Error message area -->
+    <!-- </div>
+
+    <script>
+        const serverUrl = 'http://192.168.71.45:5001/latest'; 
+
+        function fetchData() {
+            fetch(serverUrl, {
+                method: 'GET'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Update HTML elements with the fetched data
+                document.getElementById('temperature').textContent = data.temperature ? data.temperature.toFixed(2) : "--";
+                document.getElementById('humidity').textContent = data.humidity ? data.humidity.toFixed(2) : "--";
+                document.getElementById('fan-speed').textContent = data.fanSpeed !== null ? data.fanSpeed : "--";
+                document.getElementById('error-message').textContent = ""; // Clear any previous error message
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                document.getElementById('error-message').textContent = "Error fetching data. Check the connection.";
+            });
+        }
+
+        // Update every 3 seconds
+        setInterval(fetchData, 3000);
+    </script>
+</body>
+</html> --> 
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Control Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            width: 400px;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .status, .fan-speed {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #444;
+        }
+        .value {
+            font-size: 26px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .fan-speed {
+            color: #FF5722;
+        }
+        .error {
+            color: red;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Control Dashboard</h1>
+        <div class="status">
+            <div>Temperature: <span id="temperature" class="value">--</span> °C</div>
+            <div>Humidity: <span id="humidity" class="value">--</span> %</div>
+        </div>
+        <div class="fan-speed">
+            Fan Speed: <span id="fan-speed" class="value">--</span>
+        </div>
+        <div id="error-message" class="error"></div> <!-- Error message area -->
+    <!-- </div>
+
+    <script>
+        const serverUrl = 'http://192.168.71.45:5001/latest'; 
+
+        function fetchData() {
+            fetch(serverUrl, {
+                method: 'GET'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Update HTML elements with the fetched data
+                document.getElementById('temperature').textContent = data.temperature ? data.temperature.toFixed(2) : "--";
+                document.getElementById('humidity').textContent = data.humidity ? data.humidity.toFixed(2) : "--";
+                document.getElementById('fan-speed').textContent = data.fanSpeed !== null ? data.fanSpeed : "--";
+                document.getElementById('error-message').textContent = ""; // Clear any previous error message
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                document.getElementById('error-message').textContent = "Error fetching data. Check the connection.";
+            });
+        }
+
+        // Update every 3 seconds
+        setInterval(fetchData, 3000);
+    </script>
+</body>
+</html> --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Control Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #a8d0e6, #4a90e2); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 80px; 
+            border-radius: 25px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            width: 600px; 
+            color: #333;
+        }
+        h1 {
+            font-size: 42px; 
+            margin-bottom: 40px;
+        }
+        .status, .fan-speed {
+            margin-top: 45px;
+            font-size: 36px; 
+            color: #444;
+        }
+        .value {
+            font-size: 44px; 
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .fan-speed {
+            color: #FF5722;
+        }
+        .error {
+            color: red;
+            margin-top: 30px;
+            font-size: 26px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Control Dashboard</h1>
+        <div class="status">
+            <div>Temperature: <span id="temperature" class="value">--</span> °C</div>
+            <div>Humidity: <span id="humidity" class="value">--</span> %</div>
+        </div>
+        <div class="fan-speed">
+            Fan Speed: <span id="fan-speed" class="value">--</span>
+        </div>
+        <div id="ERROR!!" class="error"></div> 
+    </div>
+
+    <script>
+        const serverUrl = 'http://192.168.96.45:5001/latest'; 
+
+        function fetchData() {
+            fetch(serverUrl, {
+                method: 'GET'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                
+                document.getElementById('temperature').textContent = data.temperature ? data.temperature.toFixed(2) : "--";
+                document.getElementById('humidity').textContent = data.humidity ? data.humidity.toFixed(2) : "--";
+                document.getElementById('fan-speed').textContent = data.fanSpeed !== null ? data.fanSpeed : "--";
+                document.getElementById('error-message').textContent = ""; 
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                document.getElementById('error-message').textContent = "Error fetching data. Check the connection.";
+            });
+        }
+        setInterval(fetchData, 3000);
+    </script>
+</body>
+</html>
+
+ 
