@@ -16,9 +16,18 @@ project_root/
 │── requirements.txt     # Required dependencies
 │
 ├── templates/
-│   └── chatbot.html     # Frontend UI (HTML + CSS + JS)
+│   └── index.html       # Web dashboard UI
 │
-└── aws_lambda/          # AWS Lambda function (not included in repo)
+├── models/
+│   └── dtf_updated.pkl  # Trained ML model
+│
+├── data/
+│   ├── Testt.csv        # Test dataset
+│   ├── Train.csv        # Training dataset
+│   └── Train_test_diff_undersampled.ipynb  # Jupyter Notebook for training/testing
+│
+└── arduino/
+    └── Arduino.ino      # Arduino sketch
 ```
 
 ## How It Works
@@ -26,7 +35,7 @@ project_root/
 2. The Arduino reads temperature and humidity values from its sensors.
 3. The sensor data is sent to the Python Flask server (`app.py`), which loads the trained ML model (`dtf_updated.pkl`).
 4. The model predicts the fan speed and sends it back to the Arduino.
-5. The web dashboard (`chatbot.html`) fetches and displays the real-time temperature, humidity, and fan speed values.
+5. The web dashboard (`index.html`) fetches and displays the real-time temperature, humidity, and fan speed values.
 6. Users can also manually set the fan speed through the dashboard.
 
 ## Setting Up the Project
@@ -71,13 +80,12 @@ Once you obtain the IP address, enter it in `app.py` to allow the Flask server t
    ```bash
    python app.py
    ```
-3. **Open `chatbot.html` in a web browser** to view real-time data and control the fan.
+3. **Open `index.html` in a web browser** to view real-time data and control the fan.
 
 ## Future Improvements
 - Implementing MQTT for more robust communication.
 - Adding a mobile app for remote control.
 - Expanding to more environmental parameters for better predictions.
 
-## License
-This project is open-source and can be modified as needed.
-
+## Worked On By:
+K Adithya Vyas
